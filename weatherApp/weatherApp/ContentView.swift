@@ -56,7 +56,7 @@ struct ContentView: View {
                     
                 }
                 
-                Divider().frame(height:1).background(Color.white)
+                Divider().frame(height:1).background(Color.white) 
                
                 VStack(){
                     WeatherWeekView(dayOfWeek: "Monday",
