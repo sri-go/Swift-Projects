@@ -6,20 +6,19 @@
 //
 
 import SwiftUI
-
+ 
 struct ContentView: View {
     var viewModel: EmojiMemoryGame
     
     var body: some View {
         HStack{
             ForEach(viewModel.cards){ card in
-                CardView(card: card)
+                CardView(card: card).onTapGesture { viewModel.chooseCard(card: card) }
+                }
             }
-        }
         .padding()
         .foregroundColor(Color.orange)
         .font(Font.title)
-        
     }
 }
 
