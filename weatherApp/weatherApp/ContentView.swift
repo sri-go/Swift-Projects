@@ -19,38 +19,41 @@ struct ContentView: View {
                                 lowTemp: 28)
                                 
                  VStack{
+                    Divider().frame(height:1).background(Color.white)
+
                     ScrollView(.horizontal){
                         HStack{
                             WeatherHourlyView(Time: "12pm",
                                               ImageName: "cloud.fill",
                                               Temp: 36)
-                            WeatherHourlyView(Time: "12pm",
+                            WeatherHourlyView(Time: "1pm",
                                               ImageName: "cloud.fill",
                                               Temp: 36)
-                            WeatherHourlyView(Time: "12pm",
+                            WeatherHourlyView(Time: "2pm",
                                               ImageName: "cloud.fill",
                                               Temp: 36)
-                            WeatherHourlyView(Time: "12pm",
+                            WeatherHourlyView(Time: "3pm",
+                                              ImageName: "cloud.fill",
+                                              Temp: 37)
+                            WeatherHourlyView(Time: "4pm",
+                                              ImageName: "cloud.fill",
+                                              Temp: 37)
+                            WeatherHourlyView(Time: "5pm",
                                               ImageName: "cloud.fill",
                                               Temp: 36)
-                            WeatherHourlyView(Time: "12pm",
+                            WeatherHourlyView(Time: "6pm",
                                               ImageName: "cloud.fill",
                                               Temp: 36)
-                            WeatherHourlyView(Time: "12pm",
+                            WeatherHourlyView(Time: "7pm",
                                               ImageName: "cloud.fill",
                                               Temp: 36)
-                            WeatherHourlyView(Time: "12pm",
+                            WeatherHourlyView(Time: "8pm",
                                               ImageName: "cloud.fill",
                                               Temp: 36)
-                            WeatherHourlyView(Time: "12pm",
+                            WeatherHourlyView(Time: "9pm",
                                               ImageName: "cloud.fill",
                                               Temp: 36)
-                            WeatherHourlyView(Time: "12pm",
-                                              ImageName: "cloud.fill",
-                                              Temp: 36)
-                            WeatherHourlyView(Time: "12pm",
-                                              ImageName: "cloud.fill",
-                                              Temp: 36)
+                           
                         }
                     }
                     
@@ -84,8 +87,15 @@ struct ContentView: View {
                 }.font(.system(size: 16, weight:.regular, design: .default))
                 .foregroundColor(.white)
                
-                Divider().frame(height:1).background(Color.white)
-                
+                Divider().frame(height:1).background(Color.white).padding(.bottom, 20)
+                HStack(alignment: .center, spacing: 100){
+
+                    Image(systemName: "list.dash")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 20, height: 20, alignment: .trailing)
+                        .foregroundColor(.gray)
+                }.frame(width: 350, height: 20, alignment: .trailing)
             }
             
         }
