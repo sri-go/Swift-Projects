@@ -16,15 +16,28 @@ struct MemoryGame<CardContent> {
     init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {
         cards = Array<Card>(); //initalize cards as an empty array
         for pairIndex in 0..<numberOfPairsOfCards {
-            let content = cardContentFactory(pairIndex);
+            let content = cardContentFactory(pairIndex)
             cards.append(Card(content: content, id: pairIndex*2))
             cards.append(Card(content: content, id: pairIndex*2+1))
         }
         
     }
     
-    func choose(card: Card){
+    // need to add mutating to values that change
+    mutating func chooseCard(card: Card){
         print("You have chosen \(card)")
+        let chosenIndex: Int = index(of: card)
+        cards[chosenIndex].isFaceUp = !cards[chosenIndex].isFaceUp
+    }
+    
+    func index(of card: Card) -> Int {
+        for index in 0..<cards.count {
+            if cards[index].id == card.id{
+                return index
+            }
+        }
+        // if index not found:
+        return -1 //TODO: fix value not found
     }
     
     // full name of this data structure is MemoryGame.Card

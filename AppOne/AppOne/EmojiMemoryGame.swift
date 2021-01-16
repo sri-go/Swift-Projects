@@ -7,17 +7,19 @@
 
 import Foundation
 
-class EmojiMemoryGame {
+// ObservableObject only works for class
+class EmojiMemoryGame: ObservableObject {
    // adding private makes the model only accessible to EmojiMemoryGame
    // you can add private(set) to make it viewable by others but only modifiable by EmojiMemoryGame
-    private var model: MemoryGame<String> = EmojiMemoryGame.createMemoryGame();
+    // adding @published adds objectwillchange.send() to changing vars 
+    @Published private var model: MemoryGame<String> = EmojiMemoryGame.createMemoryGame();
     
     static func createMemoryGame() -> MemoryGame<String> {
-        let emojisArray: Array<String>  = ["🎃", "🕷", "👻"]
-        return MemoryGame<String>(numberOfPairsOfCards: emojisArray.count) { pairIndex in
+        let emojisArray: Array<String>  = ["🎃", "🕷", "👻", "😈", "🧙"].shuffled()
+        return MemoryGame<String>(numberOfPairsOfCards: Int.random(in: 2...emojisArray.count)) //returns random number between 2 and size of Emoji's Array
+        { pairIndex in
             return emojisArray[pairIndex]
         }
-
     }
     
     // MARK: - Access to Model
@@ -27,6 +29,6 @@ class EmojiMemoryGame {
     
    // MARK: - Intent(s)
     func chooseCard(card: MemoryGame<String>.Card){
-        model.choose(card: card)
+        model.chooseCard(card: card)
     }
 }
