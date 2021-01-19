@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F3E89A725B6971F00D4A859 /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E89A625B6971F00D4A859 /* GridLayout.swift */; };
+		1F3E89AA25B69D1D00D4A859 /* Array+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E89A925B69D1D00D4A859 /* Array+Identifiable.swift */; };
+		1F96792F25B3B2AC0061A958 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F96792E25B3B2AC0061A958 /* Grid.swift */; };
 		1F9FF7D025B0E061009C4E4B /* AppOneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FF7CF25B0E061009C4E4B /* AppOneApp.swift */; };
 		1F9FF7D225B0E061009C4E4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FF7D125B0E061009C4E4B /* ContentView.swift */; };
 		1F9FF7D425B0E063009C4E4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F9FF7D325B0E063009C4E4B /* Assets.xcassets */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F3E89A625B6971F00D4A859 /* GridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
+		1F3E89A925B69D1D00D4A859 /* Array+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Identifiable.swift"; sourceTree = "<group>"; };
+		1F96792E25B3B2AC0061A958 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = SOURCE_ROOT; };
 		1F9FF7CC25B0E061009C4E4B /* AppOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F9FF7CF25B0E061009C4E4B /* AppOneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOneApp.swift; sourceTree = "<group>"; };
 		1F9FF7D125B0E061009C4E4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +62,9 @@
 		1F9FF7CE25B0E061009C4E4B /* AppOne */ = {
 			isa = PBXGroup;
 			children = (
+				1F3E89A625B6971F00D4A859 /* GridLayout.swift */,
+				1F96792E25B3B2AC0061A958 /* Grid.swift */,
+				1F3E89A925B69D1D00D4A859 /* Array+Identifiable.swift */,
 				1F9FF7CF25B0E061009C4E4B /* AppOneApp.swift */,
 				1F9FF7D125B0E061009C4E4B /* ContentView.swift */,
 				1F9FF7DF25B0E3C6009C4E4B /* MemoryGame.swift */,
@@ -147,6 +156,9 @@
 				1F9FF7E025B0E3C6009C4E4B /* MemoryGame.swift in Sources */,
 				1F9FF7D225B0E061009C4E4B /* ContentView.swift in Sources */,
 				1F9FF7D025B0E061009C4E4B /* AppOneApp.swift in Sources */,
+				1F3E89A725B6971F00D4A859 /* GridLayout.swift in Sources */,
+				1F96792F25B3B2AC0061A958 /* Grid.swift in Sources */,
+				1F3E89AA25B69D1D00D4A859 /* Array+Identifiable.swift in Sources */,
 				1F9FF7E325B0E5DC009C4E4B /* EmojiMemoryGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

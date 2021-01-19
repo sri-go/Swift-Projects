@@ -12,31 +12,16 @@ struct ContentView: View {
     @ObservedObject var viewModel: EmojiMemoryGame
     
     var body: some View {
-        if(viewModel.cards.count < 5){
-            HStack{
-                ForEach(viewModel.cards){ card in
-                    CardView(card: card).onTapGesture { viewModel.chooseCard(card: card) }
-                    }
-                }
-                .padding()
-                .foregroundColor(Color.orange)
-                .font(Font.largeTitle)
-                .aspectRatio(CGSize(width: 2, height: 3), contentMode: .fit)
+        Grid(viewModel.cards) {  card in
+            CardView(card: card).onTapGesture {
+                viewModel.chooseCard(card: card)
+            }
+            .padding(5)
         }
-        else{
-            HStack{
-                ForEach(viewModel.cards){ card in
-                    CardView(card: card).onTapGesture { viewModel.chooseCard(card: card) }
-                    }
-                }
-                .padding()
-                .foregroundColor(Color.orange)
-                .font(Font.title)
-                .aspectRatio(CGSize(width: 2, height: 3), contentMode: .fit)
-            Spacer()
-        }
+        .padding()
+        .foregroundColor(Color.orange)
     }
-}
+} 
 
 struct CardView: View {
     var card: MemoryGame<String>.Card
