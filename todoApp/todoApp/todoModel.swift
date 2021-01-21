@@ -34,11 +34,11 @@ struct TodoList {
     
     mutating func deleteTodo(at offsets: IndexSet) {
         todos.remove(atOffsets: offsets)
+        saveTodos()
     }
     
     struct TodoItem: Identifiable, Codable {
         var id = UUID()
         let todoContent: String
     }
-
 }
