@@ -12,12 +12,7 @@ struct Grid<Item, ItemView>: View where Item: Identifiable, ItemView: View {
     var items: [Item]
     var viewForItem: (Item) -> ItemView
     
-    // _ in function means we don't have to provide name when using function
-    // @escaping allows you to take the function parameter and use it later outside of the scope of the local function
-    // this function lives in the heap and has pointers to it
     init(_ items: [Item], viewForItem: @escaping (Item) -> ItemView){
-        // using "self" here to refer to items in the scope of struct
-        // vs local function scope
         self.items = items
         self.viewForItem = viewForItem
     }
@@ -38,11 +33,31 @@ struct Grid<Item, ItemView>: View where Item: Identifiable, ItemView: View {
     
     // Function that simplifies above logic further
     func body(for item: Item, in layout: GridLayout) -> some View {
-        let index = items.firstIndex(matching: item)
+        // "!" after a variable, allows you to access the value by force
+        // typically done when used with an optional type, to 
+        let index = items.firstIndex(matching: item)!
         
-        return viewForItem(item)
-            .frame(width: layout.itemSize.width, height: layout.itemSize.height)
-            .position(layout.location(ofItemAt: index))
+        return Group {
+            if index != nil {
+                viewForItem(item)
+                    .frame(width: layout.itemSize.width, height: layout.itemSize.height)
+                    .position(layout.location(ofItemAt: index))
+            } 
+        }
     }
-   
 }
+
+/* MARK: - Notes
+
+ "_" in function means we don't have to provide name when using function
+    init(_ items: [Item], viewForItem: @escaping (Item) -> ItemView){ }
+
+ "@escaping" allows you to take the function parameter and use it later outside of the scope of the local function
+ this function lives in the heap and has pointers to it
+
+     init(_ items: [Item], viewForItem: @escaping (Item) -> ItemView){
+         self.items = items
+         self.viewForItem = viewForItem
+     }
+ 
+ */

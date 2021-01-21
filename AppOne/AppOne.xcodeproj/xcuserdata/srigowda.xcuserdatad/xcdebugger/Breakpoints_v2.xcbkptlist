@@ -7,17 +7,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FB32DEAD-92D9-40F9-946E-5D886E1B5C7F"
-            shouldBeEnabled = "Yes"
+            uuid = "510754E0-C4FD-470E-8FA7-DA7EDD8F207B"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AppOne/EmojiMemoryGame.swift"
+            filePath = "AppOne/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "29"
             endingLineNumber = "29"
-            landmarkName = "createMemoryGame()"
-            landmarkType = "7">
+            landmarkName = "CardView"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

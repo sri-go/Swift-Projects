@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1F3E89A725B6971F00D4A859 /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E89A625B6971F00D4A859 /* GridLayout.swift */; };
 		1F3E89AA25B69D1D00D4A859 /* Array+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E89A925B69D1D00D4A859 /* Array+Identifiable.swift */; };
+		1F3E89AD25B7E15F00D4A859 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E89AC25B7E15F00D4A859 /* Theme.swift */; };
+		1F3E89B025B8C7BD00D4A859 /* Array+Only.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E89AF25B8C7BD00D4A859 /* Array+Only.swift */; };
 		1F96792F25B3B2AC0061A958 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F96792E25B3B2AC0061A958 /* Grid.swift */; };
 		1F9FF7D025B0E061009C4E4B /* AppOneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FF7CF25B0E061009C4E4B /* AppOneApp.swift */; };
 		1F9FF7D225B0E061009C4E4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FF7D125B0E061009C4E4B /* ContentView.swift */; };
@@ -21,6 +23,8 @@
 /* Begin PBXFileReference section */
 		1F3E89A625B6971F00D4A859 /* GridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
 		1F3E89A925B69D1D00D4A859 /* Array+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Identifiable.swift"; sourceTree = "<group>"; };
+		1F3E89AC25B7E15F00D4A859 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		1F3E89AF25B8C7BD00D4A859 /* Array+Only.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Only.swift"; sourceTree = "<group>"; };
 		1F96792E25B3B2AC0061A958 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = SOURCE_ROOT; };
 		1F9FF7CC25B0E061009C4E4B /* AppOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F9FF7CF25B0E061009C4E4B /* AppOneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOneApp.swift; sourceTree = "<group>"; };
@@ -67,7 +71,9 @@
 				1F3E89A925B69D1D00D4A859 /* Array+Identifiable.swift */,
 				1F9FF7CF25B0E061009C4E4B /* AppOneApp.swift */,
 				1F9FF7D125B0E061009C4E4B /* ContentView.swift */,
+				1F3E89AF25B8C7BD00D4A859 /* Array+Only.swift */,
 				1F9FF7DF25B0E3C6009C4E4B /* MemoryGame.swift */,
+				1F3E89AC25B7E15F00D4A859 /* Theme.swift */,
 				1F9FF7E225B0E5DC009C4E4B /* EmojiMemoryGame.swift */,
 				1F9FF7D325B0E063009C4E4B /* Assets.xcassets */,
 				1F9FF7D825B0E063009C4E4B /* Info.plist */,
@@ -154,7 +160,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F9FF7E025B0E3C6009C4E4B /* MemoryGame.swift in Sources */,
+				1F3E89AD25B7E15F00D4A859 /* Theme.swift in Sources */,
 				1F9FF7D225B0E061009C4E4B /* ContentView.swift in Sources */,
+				1F3E89B025B8C7BD00D4A859 /* Array+Only.swift in Sources */,
 				1F9FF7D025B0E061009C4E4B /* AppOneApp.swift in Sources */,
 				1F3E89A725B6971F00D4A859 /* GridLayout.swift in Sources */,
 				1F96792F25B3B2AC0061A958 /* Grid.swift in Sources */,
