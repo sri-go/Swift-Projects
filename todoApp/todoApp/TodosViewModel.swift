@@ -8,19 +8,27 @@
 import Foundation
 
 class TodoListViewModel: ObservableObject{
-    @Published private var model: TodoList<String> = createTodoList()
+    @Published private var model: TodoList
     
-    static func createTodoList() -> TodoList<String> {
-        return TodoList<String>();
+    init(){
+        model = TodoList()
     }
     
     // MARK: - Access to Model
-    var todos: Array<TodoList<String>.TodoItem>{
+    var todos: Array<TodoList.TodoItem>  {
         return model.todos
     }
-    
+
     // MARK: - Intent(s)
-    func addTodo(todo: TodoList<String>.TodoItem){
+    func addTodo(todo: TodoList.TodoItem) {
         model.addTodo(todo: todo)
+    }
+    
+    func saveTodos() {
+        model.saveTodos()
+    }
+    
+    func deleteTodo(at offsets: IndexSet) {
+        model.deleteTodo(at: offsets)
     }
 }

@@ -8,23 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
-    // @ObservedObject looks to the "View Model" to see if there are any changes and then
-    // redraws the view
-    @ObservedObject var viewModel: TodoListViewModel = TodoListViewModel()
+    @ObservedObject var viewModel: TodoListViewModel
     @State var newTodo = ""
+    
+    init() {
+        self.viewModel = TodoListViewModel()
+    }
     
     var body: some View {
         NavigationView{
             VStack{
-                
                 HStack{
                     TextField("Add Todos....", text: $newTodo)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     
                     Button(action: {
                         guard !self.newTodo.isEmpty else { return }
-                        viewModel.addTodo(todo: TodoList<String>.TodoItem(content: newTodo))
+                        viewModel.addTodo(todo: TodoList.TodoItem(todoContent: newTodo))
                         newTodo = ""
+                        viewModel.saveTodos()
                     }){
                         Image(systemName: "plus").padding(.leading, 5)
                     }
@@ -34,24 +36,26 @@ struct ContentView: View {
                     ForEach(viewModel.todos) { todo in
                         TodoView(todo: todo)
                     }
-                }
-            }
-            .navigationBarTitle("Todos")
+                    .onDelete(perform: viewModel.deleteTodo)
+                    
+                }.listStyle(PlainListStyle())
+            
+            }.navigationBarTitle("Todos")
         }
     }
 }
 
 struct TodoView: View {
-    var todo: TodoList<String>.TodoItem
+    var todo: TodoList.TodoItem
     
     var body: some View {
-        Text(todo.content)
+        Text(todo.todoContent)
     }
 
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: TodoListViewModel())
+        ContentView()
     }
 }
