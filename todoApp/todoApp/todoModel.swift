@@ -7,11 +7,20 @@
 
 import Foundation
 
-struct TodoList<TodoContent> {
-    var todos: Array<TodoItem>;
+struct TodoList {
+    var todos: Array<TodoItem>
+    private let todosKey = "todosKey"
     
     init(){
-        todos = Array<TodoItem>();
+        // load todos if available else init empty array
+        if let todosData = UserDefaults.standard.value(forKey: todosKey) as? Data {
+            if let todosList = try? PropertyListDecoder().decode(Array<TodoItem>.self, from: todosData) {
+                self.todos = todosList
+                return 
+            }
+        }
+        
+        todos = Array<TodoItem>()
     }
     
     mutating func addTodo(todo: TodoItem){
@@ -19,8 +28,17 @@ struct TodoList<TodoContent> {
         todos.append(todo)
     }
     
-    struct TodoItem: Identifiable {
-        let id = UUID()
-        var content: String
+    func saveTodos()  {
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(todos), forKey: todosKey)
     }
+    
+    mutating func deleteTodo(at offsets: IndexSet) {
+        todos.remove(atOffsets: offsets)
+    }
+    
+    struct TodoItem: Identifiable, Codable {
+        var id = UUID()
+        let todoContent: String
+    }
+
 }
