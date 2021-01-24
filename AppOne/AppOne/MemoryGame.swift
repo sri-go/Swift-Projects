@@ -10,10 +10,10 @@ import Foundation
 
 //Model could be a SQL Database, or HTTP Request
 struct MemoryGame<CardContent> where CardContent: Equatable{
-    var cards: Array<Card>
+    private(set) var cards: Array<Card>
     var score: Int
     
-    var indexOfTheOneAndOnlyFaceUpCard: Int? {
+    private var indexOfTheOneAndOnlyFaceUpCard: Int? {
         get { cards.indices.filter { index in cards[index].isFaceUp }.only }
         set {
             for index in cards.indices {
@@ -85,7 +85,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable{
     "," is a sequential operator in "if let" statement, allows you to bind other requirements to the if statement
         equivalent to if x == 5 && y == 5
     
- "if let" allows you to safely access optional value
+    "if let" allows you to safely access optional value
         if let chosenIndex = cards.firstIndex(matching: card), !cards[chosenIndex].isFaceUp, !cards[chosenIndex].isMatched{
             if let potentialMatchIndex = indexOfOneandOnlyOneFaceUpCard { }
         }

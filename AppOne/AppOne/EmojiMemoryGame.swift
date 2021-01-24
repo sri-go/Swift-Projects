@@ -20,7 +20,8 @@ class EmojiMemoryGame: ObservableObject {
     init() {
         let theme = EmojiTheme() // Initialize theme
         self.theme = theme // set theme to new generated theme
-        self.model = MemoryGame<String>(numberOfPairsOfCards: theme.emojis.count) { pairIndex in theme.emojis[pairIndex] } // set model to new game
+        self.model = MemoryGame<String>(numberOfPairsOfCards: theme.emojis.count)
+            { pairIndex in theme.emojis[pairIndex] } // set model to new game
     }
     
     // MARK: - Access to Model
@@ -35,7 +36,8 @@ class EmojiMemoryGame: ObservableObject {
     
     func newGame() {
         theme = EmojiTheme()// declare a new instance of theme
-        model = MemoryGame<String>(numberOfPairsOfCards: theme.emojis.count) { pairIndex in theme.emojis[pairIndex] } // declare a new model 
+        model = MemoryGame<String>(numberOfPairsOfCards: theme.emojis.count)
+            { pairIndex in theme.emojis[pairIndex] } // declare a new model
         
         print("Emoji Theme: \(theme)")
     }
