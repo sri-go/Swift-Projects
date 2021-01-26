@@ -11,11 +11,7 @@ struct ContentView: View {
     @EnvironmentObject var viewModel: TodoListViewModel
 
     @State var newTodo = ""
-    
-//    init() {
-//        self.viewModel = TodoListViewModel()
-//    }
-    
+ 
     var body: some View {
         NavigationView{
             VStack{
@@ -49,21 +45,17 @@ struct ContentView: View {
 struct TodoView: View {
     @EnvironmentObject var viewModel: TodoListViewModel
     var todo: TodoList.TodoItem
-
-    @State var trimVal: CGFloat = 0
     
     var body: some View {
         HStack(alignment: .center, spacing: 30){
-            CircleCheckMark(checkStatus: todo.status, trimVal: $trimVal)
+            CircleCheckMark(checkStatus: todo.status)
                 .onTapGesture {
                     if !todo.status {
                         withAnimation(Animation.easeIn(duration: 0.5)){
-                            self.trimVal = 1
                             viewModel.updateTodo(todo: todo)
                         }
                     }else {
                         withAnimation {
-                            self.trimVal = 0
                             viewModel.updateTodo(todo: todo)
                         }
                     }
@@ -78,28 +70,16 @@ struct TodoView: View {
 
 struct CircleCheckMark: View {
     var checkStatus: Bool
-    @Binding var trimVal: CGFloat
-    
-    var animatableData: CGFloat {
-        get { trimVal }
-        set { trimVal = newValue }
-    }
     
     var body: some View {
         ZStack{
             Circle()
-                .trim(from: 0, to: trimVal)
-                .stroke(style: StrokeStyle(lineWidth: 2))
-                .frame(width: 30, height: 30)
                 .foregroundColor(checkStatus ? Color.green : Color.gray)
-                .overlay(
-                    Circle()
-                        .fill(checkStatus ? Color.green : Color.gray.opacity(0.2))
-                        .frame(width: 20, height: 20)
-                )
-            
+                .frame(width: 30, height: 30)
+
             if checkStatus {
                 Image(systemName: "checkmark")
+                    .scaleEffect(CGSize(width: 0.85, height: 0.85))
                     .foregroundColor(Color.white)
             }
         }
