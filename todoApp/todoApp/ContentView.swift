@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var viewModel: TodoListViewModel
+    @EnvironmentObject var viewModel: TodoListViewModel
+
     @State var newTodo = ""
     
-    init() {
-        self.viewModel = TodoListViewModel()
-    }
+//    init() {
+//        self.viewModel = TodoListViewModel()
+//    }
     
     var body: some View {
         NavigationView{
@@ -46,16 +47,68 @@ struct ContentView: View {
 }
 
 struct TodoView: View {
+    @EnvironmentObject var viewModel: TodoListViewModel
     var todo: TodoList.TodoItem
+
+    @State var trimVal: CGFloat = 0
     
     var body: some View {
-        Text(todo.todoContent)
+        HStack(alignment: .center, spacing: 30){
+            CircleCheckMark(checkStatus: todo.status, trimVal: $trimVal)
+                .onTapGesture {
+                    if !todo.status {
+                        withAnimation(Animation.easeIn(duration: 0.5)){
+                            self.trimVal = 1
+                            viewModel.updateTodo(todo: todo)
+                        }
+                    }else {
+                        withAnimation {
+                            self.trimVal = 0
+                            viewModel.updateTodo(todo: todo)
+                        }
+                    }
+                }
+            
+            Text(todo.todoContent)
+                .foregroundColor(todo.status ? Color.gray.opacity(0.2) : Color.black)
+        }
     }
 
 }
 
+struct CircleCheckMark: View {
+    var checkStatus: Bool
+    @Binding var trimVal: CGFloat
+    
+    var animatableData: CGFloat {
+        get { trimVal }
+        set { trimVal = newValue }
+    }
+    
+    var body: some View {
+        ZStack{
+            Circle()
+                .trim(from: 0, to: trimVal)
+                .stroke(style: StrokeStyle(lineWidth: 2))
+                .frame(width: 30, height: 30)
+                .foregroundColor(checkStatus ? Color.green : Color.gray)
+                .overlay(
+                    Circle()
+                        .fill(checkStatus ? Color.green : Color.gray.opacity(0.2))
+                        .frame(width: 20, height: 20)
+                )
+            
+            if checkStatus {
+                Image(systemName: "checkmark")
+                    .foregroundColor(Color.white)
+            }
+        }
+        
+    }
+}
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(TodoListViewModel())
     }
 }

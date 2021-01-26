@@ -31,4 +31,8 @@ class TodoListViewModel: ObservableObject{
     func deleteTodo(at offsets: IndexSet) {
         model.deleteTodo(at: offsets)
     }
+    
+    func updateTodo(todo: TodoList.TodoItem){
+        model.updateStatus(todo: todo)
+    }
 }

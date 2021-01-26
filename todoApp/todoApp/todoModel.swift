@@ -37,8 +37,30 @@ struct TodoList {
         saveTodos()
     }
     
+    mutating func updateStatus(todo: TodoList.TodoItem){
+        for index in 0..<todos.count{
+            if todos[index].id == todo.id {
+                todos[index].status = !todos[index].status
+                print("after: \(todo)")
+            }
+        }
+    }
+    
     struct TodoItem: Identifiable, Codable {
         var id = UUID()
         let todoContent: String
+        var status: Bool = false
     }
 }
+
+/* MARK: - Notes
+ 
+ Todo item status:
+ 1) default item to false on creation
+ 2) on button action
+    -> send the todo index
+    -> if the status is false: set to true
+    -> if the status is true: set to false
+ 3)
+ 
+ */
