@@ -53,10 +53,12 @@ struct TodoView: View {
                     if !todo.status {
                         withAnimation(Animation.easeIn(duration: 0.5)){
                             viewModel.updateTodo(todo: todo)
+                            viewModel.saveTodos()
                         }
                     }else {
                         withAnimation {
                             viewModel.updateTodo(todo: todo)
+                            viewModel.saveTodos()
                         }
                     }
                 }
@@ -74,7 +76,7 @@ struct CircleCheckMark: View {
     var body: some View {
         ZStack{
             Circle()
-                .foregroundColor(checkStatus ? Color.green : Color.gray)
+                .foregroundColor(checkStatus ? Color.green : Color.gray.opacity(0.25))
                 .frame(width: 30, height: 30)
 
             if checkStatus {
